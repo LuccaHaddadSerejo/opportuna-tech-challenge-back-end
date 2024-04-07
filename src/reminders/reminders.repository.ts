@@ -14,4 +14,16 @@ export class UsersRepository {
       },
     });
   }
+
+  async findAll(): Promise<Reminder[]> {
+    return await this.prisma.reminder.findMany();
+  }
+
+  async findOne(id: number): Promise<Reminder> {
+    return await this.prisma.reminder.findUnique({
+      where: {
+        id,
+      },
+    });
+  }
 }
