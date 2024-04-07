@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { RemindersModule } from './reminders/reminders.module';
 
 @Module({
-  imports: [],
+  imports: [RemindersModule],
   controllers: [],
   providers: [],
 })
