@@ -22,6 +22,11 @@ export class Reminder {
   date: string;
 
   @ApiProperty({
+    description: 'Hora do lembrete',
+  })
+  time: string;
+
+  @ApiProperty({
     description: 'Cidade do lembrete',
   })
   city: string;
@@ -30,14 +35,4 @@ export class Reminder {
     description: 'Cor do lembrete',
   })
   color: string;
-
-  @ApiProperty({
-    description: 'Data de criação do lembrete',
-  })
-  createdAt?: Date;
-
-  @ApiProperty({
-    description: 'Data de atualização do lembrete',
-  })
-  updatedAt?: Date;
 }
