@@ -5,7 +5,7 @@ import { CreateReminderDto } from './dto/create-reminder.dto';
 import { UpdateReminderDto } from './dto/update-reminder.dto';
 
 @Injectable()
-export class UsersRepository {
+export class RemindersRepository {
   constructor(private prisma: PrismaService) {}
 
   async create(reqBody: CreateReminderDto): Promise<Reminder> {
@@ -16,11 +16,11 @@ export class UsersRepository {
     });
   }
 
-  async findAll(): Promise<Reminder[]> {
+  async findAll(): Promise<Reminder[] | []> {
     return await this.prisma.reminder.findMany();
   }
 
-  async findOne(id: number): Promise<Reminder> {
+  async findOne(id: number): Promise<Reminder | void> {
     return await this.prisma.reminder.findUnique({
       where: {
         id: id,
