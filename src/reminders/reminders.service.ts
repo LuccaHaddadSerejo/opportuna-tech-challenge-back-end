@@ -1,26 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateReminderDto } from './dto/create-reminder.dto';
 import { UpdateReminderDto } from './dto/update-reminder.dto';
+import { RemindersRepository } from './reminders.repository';
+import { Reminder } from '@prisma/client';
 
 @Injectable()
 export class RemindersService {
-  create(createReminderDto: CreateReminderDto) {
-    return 'This action adds a new reminder';
+  constructor(private readonly reminderRepository: RemindersRepository) {}
+
+  async create(reqBody: CreateReminderDto): Promise<Reminder> {
+    return await this.reminderRepository.create(reqBody);
   }
 
-  findAll() {
-    return `This action returns all reminders`;
+  async findAll(): Promise<Reminder[] | []> {
+    return await this.reminderRepository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} reminder`;
+  async findOne(id: number): Promise<Reminder> {
+    const findReminder = await this.reminderRepository.findOne(id);
+
+    if (!findReminder) {
+      throw new HttpException('Reminder not found', HttpStatus.NOT_FOUND);
+    }
+
+    return findReminder;
   }
 
-  update(id: number, updateReminderDto: UpdateReminderDto) {
-    return `This action updates a #${id} reminder`;
+  async update(id: number, reqBody: UpdateReminderDto): Promise<Reminder> {
+    await this.findOne(id);
+
+    return this.reminderRepository.update(id, reqBody);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} reminder`;
+  async delete(id: number): Promise<void> {
+    await this.findOne(id);
+
+    this.reminderRepository.delete(id);
   }
 }
