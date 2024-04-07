@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  HttpCode,
 } from '@nestjs/common';
 import { RemindersService } from './reminders.service';
 import { CreateReminderDto } from './dto/create-reminder.dto';
@@ -36,7 +37,14 @@ export class RemindersController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  @HttpCode(204)
+  delete(@Param('id') id: string) {
     return this.remindersService.delete(+id);
+  }
+
+  @Delete()
+  @HttpCode(204)
+  deleteAll() {
+    return this.remindersService.deleteAll();
   }
 }

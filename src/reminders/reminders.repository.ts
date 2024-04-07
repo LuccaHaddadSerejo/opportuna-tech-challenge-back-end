@@ -46,4 +46,8 @@ export class RemindersRepository {
       },
     });
   }
+
+  async deleteAll(): Promise<void> {
+    await this.prisma.reminder.deleteMany({});
+  }
 }

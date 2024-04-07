@@ -17,7 +17,8 @@ export class RemindersService {
   }
 
   async findOne(id: number): Promise<Reminder> {
-    const findReminder = await this.reminderRepository.findOne(id);
+    const findReminder: Reminder | void =
+      await this.reminderRepository.findOne(id);
 
     if (!findReminder) {
       throw new HttpException('Reminder not found', HttpStatus.NOT_FOUND);
@@ -29,12 +30,16 @@ export class RemindersService {
   async update(id: number, reqBody: UpdateReminderDto): Promise<Reminder> {
     await this.findOne(id);
 
-    return this.reminderRepository.update(id, reqBody);
+    return await this.reminderRepository.update(id, reqBody);
   }
 
   async delete(id: number): Promise<void> {
     await this.findOne(id);
 
-    this.reminderRepository.delete(id);
+    await this.reminderRepository.delete(id);
+  }
+
+  async deleteAll(): Promise<void> {
+    await this.reminderRepository.deleteAll();
   }
 }
