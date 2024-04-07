@@ -7,6 +7,7 @@ Back end para o teste técnico da empresa Opportuna Tecnologia.
 - <a href="#-requisitos">Requisitos do serviço</a>
 - <a href="#-instalar">Instalando e rodando o projeto</a>
 - <a href="#-funcionalidades">Funcionalidades</a>
+- - <a href="#-docs">Documentação</a>
 - <a href="#-bibliotecas">Bibliotecas utilizadas</a>
 
 ## <h2 id="-requisitos">Requisitos do serviço</h2>
@@ -41,6 +42,17 @@ $ yarn start:dev
 - Deleção de lembretes;
 - Atualização de lembretes;
 - Deleção de todos os lembretes registrados na tabela.
+
+## <h2 id="-docs">Documentação</h2>
+
+```bash
+# Inicie a aplicação:
+$ yarn start:dev
+
+# Entre na seguinte rota para ver a documentação:
+$ http://localhost:3000/api/v1/docs/
+
+```
 
 ## <h2 id="-bibliotecas">Bibliotecas utilizadas</h2>
 

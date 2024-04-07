@@ -8,8 +8,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Opportuna-tech-test-api')
-    .setDescription('Api for tech test from Opportuna Tecnologia')
+    .setTitle('Opportuna-api')
+    .setDescription('Api do teste técnico para a empresa Opportuna Tecnologia')
     .setVersion('1.0.0')
     .build();
 
