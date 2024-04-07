@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsOptional,
-  IsDate,
-  MaxLength,
-} from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
 
 export class CreateReminderDto {
   @IsNotEmpty()
@@ -17,8 +11,7 @@ export class CreateReminderDto {
   description: string;
 
   @IsNotEmpty()
-  @IsDate()
-  date: Date;
+  date: string;
 
   @IsNotEmpty()
   @IsString()
