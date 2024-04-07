@@ -42,7 +42,7 @@ export class RemindersController {
     return this.remindersService.delete(+id);
   }
 
-  @Delete()
+  @Delete('/deleteAll')
   @HttpCode(204)
   deleteAll() {
     return this.remindersService.deleteAll();
