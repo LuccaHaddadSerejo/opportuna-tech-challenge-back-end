@@ -2,37 +2,37 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class Reminder {
   @ApiProperty({
-    description: 'Id do lembrete',
+    description: 'Reminder id',
   })
   readonly id: number;
 
   @ApiProperty({
-    description: 'Título do lembrete',
+    description: 'Reminder title',
   })
   title: string;
 
   @ApiProperty({
-    description: 'Descrição do lembrete',
+    description: 'Reminder description',
   })
-  description?: string;
+  description: string;
 
   @ApiProperty({
-    description: 'Data do lembrete',
+    description: 'Reminder date',
   })
   date: string;
 
   @ApiProperty({
-    description: 'Hora do lembrete',
+    description: 'Reminder time',
   })
   time: string;
 
   @ApiProperty({
-    description: 'Cidade do lembrete',
+    description: 'Reminder city',
   })
   city: string;
 
   @ApiProperty({
-    description: 'Cor do lembrete',
+    description: 'Reminder color',
   })
   color: string;
 }
