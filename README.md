@@ -1,60 +1,60 @@
-# Teste técnico Opportuna Tecnologia - Backend
+# Opportuna Tecnologia Technical Test - Backend
 
-Back end para o teste técnico da empresa Opportuna Tecnologia.
+Backend for the technical test of Opportuna Tecnologia company.
 
-## Índice
+## Index
 
-- <a href="#-requisitos">Requisitos do serviço</a>
-- <a href="#-instalar">Instalando e rodando o projeto</a>
-- <a href="#-funcionalidades">Funcionalidades</a>
-- - <a href="#-docs">Documentação</a>
-- <a href="#-bibliotecas">Bibliotecas utilizadas</a>
+- <a href="#-requirements">Service Requirements</a>
+- <a href="#-install">Installing and Running the Project</a>
+- <a href="#-features">Features</a>
+- <a href="#-docs">Documentation</a>
+- <a href="#-libraries">Used Libraries</a>
 
-## <h2 id="-requisitos">Requisitos do serviço</h2>
+## <h2 id="-requirements">Service Requirements</h2>
 
-- O banco de dados utilizado foi **PostgreSQL**.
-- Tenha o **PostgreSQL** instalado em sua máquina.
-- Tenha um banco de dados PostgreSQL criado para utilizar nas variáveis de ambiente do projeto.
+- The database used was PostgreSQL.
+- Have PostgreSQL installed and running on your machine.
+- Have a PostgreSQL database created to use in the project's environment variables.
 
-## <h2 id=#-instalar>Instalando e rodando o projeto<h2>
+## <h2 id=#-install>Installing and Running the Project</h2>
 
 ```bash
-# Instale as dependências:
+# Install dependencies:
 $ yarn install
 
-# Crie e configure o .env:
-# Tenha um banco de dados PostgreSQL criado para configurar as variáveis de ambiente corretamente.
-$ Crie um arquivo .env na raiz do projeto e configure com base no arquivo .env.example.
+# Create and configure the .env file:
+# Have a PostgreSQL database created and running to configure the environment variables correctly.
+$ Create a .env file at the root of the project and configure it based on the .env.example file.
 
-# Execute as migrações:
+# Run migrations:
 $ npx prisma migrate dev
 
-# Execute a aplicação:
+# Run the application:
 $ yarn start:dev
 ```
 
-## <h2 id="-funcionalidades">Funcionalidades</h2>
+## <h2 id="-features">Features</h2>
 
-### Gerais
+### General
 
-- Cadastro/Criação de lembretes;
-- Leitura de lembretes;
-- Deleção de lembretes;
-- Atualização de lembretes;
-- Deleção de todos os lembretes registrados na tabela.
+- Reminder creation;
+- Reading reminders;
+- Reminder deletion;
+- Reminder update;
+- Deletion of all reminders in a given day.
 
-## <h2 id="-docs">Documentação</h2>
+## <h2 id="-docs">Documentation</h2>
 
 ```bash
-# Inicie a aplicação:
+# Start the application:
 $ yarn start:dev
 
-# Entre na seguinte rota para ver a documentação:
+# Access the following route to see the documentation:
 $ http://localhost:3000/api/v1/docs/
 
 ```
 
-## <h2 id="-bibliotecas">Bibliotecas utilizadas</h2>
+## <h2 id="-libraries">Used Libraries</h2>
 
 - [x] Nest
 - [x] Prisma

@@ -9,7 +9,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Opportuna-api')
-    .setDescription('Api do teste técnico para a empresa Opportuna Tecnologia')
+    .setDescription('Technical test API for the company Opportuna Tecnologia')
     .setVersion('1.0.0')
     .build();
 

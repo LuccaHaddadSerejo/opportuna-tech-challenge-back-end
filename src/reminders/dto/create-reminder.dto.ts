@@ -1,16 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsString,
-  IsNotEmpty,
-  IsOptional,
-  MaxLength,
-  IsISO8601,
-} from 'class-validator';
+import { IsString, IsNotEmpty, MaxLength, IsISO8601 } from 'class-validator';
 
 export class CreateReminderDto {
   @ApiProperty({
-    description: 'Título do lembrete',
-    example: 'Estudar!',
+    description: 'Reminder title',
+    example: 'Study',
     nullable: false,
   })
   @IsNotEmpty()
@@ -19,16 +13,17 @@ export class CreateReminderDto {
   title: string;
 
   @ApiProperty({
-    description: 'Descrição do lembrete',
-    example: 'Estudar 1 hora por cada matéria',
-    nullable: true,
+    description: 'Reminder description',
+    example: 'Study 1 hour each subject',
+    nullable: false,
   })
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
+  @MaxLength(30, { message: 'The title can only have up to 30 characters' })
   description: string;
 
   @ApiProperty({
-    description: 'Data do lembrete',
+    description: 'Reminder date',
     example: '25-04-2024T21:33:36Z',
     nullable: false,
   })
@@ -39,7 +34,7 @@ export class CreateReminderDto {
   date: string;
 
   @ApiProperty({
-    description: 'Hora do lembrete',
+    description: 'Reminder time',
     example: '25-04-2024T21:33:36Z',
     nullable: false,
   })
@@ -50,7 +45,7 @@ export class CreateReminderDto {
   time: string;
 
   @ApiProperty({
-    description: 'Cidade do lembrete',
+    description: 'Reminder city',
     example: 'Brasília',
     nullable: false,
   })
@@ -59,8 +54,8 @@ export class CreateReminderDto {
   city: string;
 
   @ApiProperty({
-    description: 'Cor do lembrete',
-    example: '#900000',
+    description: 'Reminder color',
+    example: 'red',
     nullable: false,
   })
   @IsNotEmpty()
