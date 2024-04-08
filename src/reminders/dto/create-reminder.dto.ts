@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsOptional,
+  MaxLength,
+  IsISO8601,
+} from 'class-validator';
 
 export class CreateReminderDto {
   @ApiProperty({
@@ -22,12 +28,26 @@ export class CreateReminderDto {
   description: string;
 
   @ApiProperty({
-    description: 'Data e hora do lembrete',
-    example: '30-08-2024T00:00:00Z',
+    description: 'Data do lembrete',
+    example: '25-04-2024T21:33:36Z',
     nullable: false,
+  })
+  @IsISO8601({
+    strict: true,
   })
   @IsNotEmpty()
   date: string;
+
+  @ApiProperty({
+    description: 'Hora do lembrete',
+    example: '25-04-2024T21:33:36Z',
+    nullable: false,
+  })
+  @IsISO8601({
+    strict: true,
+  })
+  @IsNotEmpty()
+  time: string;
 
   @ApiProperty({
     description: 'Cidade do lembrete',

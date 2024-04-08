@@ -17,11 +17,10 @@ model Reminder {
   id          Int      @id @default(autoincrement())
   title       String   @db.VarChar(30)
   description String?
-  date        DateTime
+  date        DateTime @db.Date
+  time        DateTime @db.Time
   city        String
   color       String
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
 
   @@map("reminders")
 }
