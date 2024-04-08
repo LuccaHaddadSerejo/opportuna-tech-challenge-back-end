@@ -3,6 +3,7 @@ import { Reminder } from '@prisma/client';
 import { PrismaService } from 'src/database/prisma.service';
 import { CreateReminderDto } from './dto/create-reminder.dto';
 import { UpdateReminderDto } from './dto/update-reminder.dto';
+import { DeleteByDayDto } from './dto/delete-by-day.dto';
 
 @Injectable()
 export class RemindersRepository {
@@ -47,7 +48,13 @@ export class RemindersRepository {
     });
   }
 
-  async deleteAll(): Promise<void> {
-    await this.prisma.reminder.deleteMany({});
+  async deleteByDay(idList: DeleteByDayDto): Promise<void> {
+    await this.prisma.reminder.deleteMany({
+      where: {
+        id: {
+          in: idList.idList,
+        },
+      },
+    });
   }
 }

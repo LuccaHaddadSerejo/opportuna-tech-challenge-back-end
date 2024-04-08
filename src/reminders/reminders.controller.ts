@@ -13,16 +13,17 @@ import { CreateReminderDto } from './dto/create-reminder.dto';
 import { UpdateReminderDto } from './dto/update-reminder.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Reminder } from './entities/reminder.entity';
+import { DeleteByDayDto } from './dto/delete-by-day.dto';
 @ApiTags('reminders')
 @Controller('reminders')
 export class RemindersController {
   constructor(private readonly remindersService: RemindersService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Criação de lembretes' })
+  @ApiOperation({ summary: 'Create a reminder' })
   @ApiResponse({
     status: 201,
-    description: 'Criar um novo lembrete',
+    description: 'Create a new reminder',
     type: Reminder,
   })
   create(@Body() reqBody: CreateReminderDto) {
@@ -30,10 +31,10 @@ export class RemindersController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Buscar todos os lembretes' })
+  @ApiOperation({ summary: 'Read all reminders' })
   @ApiResponse({
     status: 200,
-    description: 'Buscar lembretes',
+    description: 'Read all reminders',
     type: Array<Reminder>,
   })
   findAll() {
@@ -41,10 +42,10 @@ export class RemindersController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Buscar lembrete por id' })
+  @ApiOperation({ summary: 'Read a reminder' })
   @ApiResponse({
     status: 200,
-    description: 'Buscar um lembrete',
+    description: 'Read a reminder by id',
     type: Reminder,
   })
   findOne(@Param('id') id: string) {
@@ -52,10 +53,10 @@ export class RemindersController {
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Atualizar um lembrete por id' })
+  @ApiOperation({ summary: 'Update a reminder' })
   @ApiResponse({
     status: 200,
-    description: 'Atualizar um lembrete',
+    description: 'Update a reminder by id',
     type: Reminder,
   })
   update(@Param('id') id: string, @Body() reqBody: UpdateReminderDto) {
@@ -64,25 +65,25 @@ export class RemindersController {
 
   @Delete(':id')
   @HttpCode(204)
-  @ApiOperation({ summary: 'Deletar um lembrete por id' })
+  @ApiOperation({ summary: 'Delete a reminder' })
   @ApiResponse({
     status: 204,
-    description: 'Deletar um lembrete',
+    description: 'Delete a reminder by id',
     type: null,
   })
   delete(@Param('id') id: string) {
     return this.remindersService.delete(+id);
   }
 
-  @Delete('/deleteAll')
+  @Post('/deleteByDay')
   @HttpCode(204)
-  @ApiOperation({ summary: 'Deletar todos os lembretes' })
+  @ApiOperation({ summary: 'Delete all reminder of a given day' })
   @ApiResponse({
     status: 204,
-    description: 'Deletar todos os lembretes',
+    description: 'Delete all reminder of a given day',
     type: null,
   })
-  deleteAll() {
-    return this.remindersService.deleteAll();
+  deleteByDay(@Body() idList: DeleteByDayDto) {
+    return this.remindersService.deleteByDay(idList);
   }
 }
