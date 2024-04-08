@@ -16,7 +16,7 @@ datasource db {
 model Reminder {
   id          Int      @id @default(autoincrement())
   title       String   @db.VarChar(30)
-  description String?
+  description String   @db.VarChar(30)
   date        DateTime @db.Date
   time        DateTime @db.Time
   city        String
