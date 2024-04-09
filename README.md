@@ -15,6 +15,7 @@ Backend for the technical test of Opportuna Tecnologia company.
 - The database used was PostgreSQL.
 - Have PostgreSQL installed and running on your machine.
 - Have a PostgreSQL database created to use in the project's environment variables.
+- Have the port 3000 free to run the application.
 
 ## <h2 id=#-install>Installing and Running the Project</h2>
 
@@ -58,5 +59,6 @@ $ http://localhost:3000/api/v1/docs/
 
 - [x] Nest
 - [x] Prisma
-- [x] dotenv
-- [x] cors
+- [x] Dotenv
+- [x] Cors
+- [x] Swagger
