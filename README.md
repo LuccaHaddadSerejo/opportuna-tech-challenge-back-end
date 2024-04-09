@@ -48,7 +48,7 @@ $ yarn dev
 
 ```bash
 # Start the application:
-$ yarn start:dev
+$ yarn dev
 
 # Access the following route to see the documentation:
 $ http://localhost:3000/api/v1/docs/
