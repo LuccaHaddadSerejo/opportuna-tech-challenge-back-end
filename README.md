@@ -31,7 +31,7 @@ $ Create a .env file at the root of the project and configure it based on the .e
 $ npx prisma migrate dev
 
 # Run the application:
-$ yarn start:dev
+$ yarn dev
 ```
 
 ## <h2 id="-features">Features</h2>
